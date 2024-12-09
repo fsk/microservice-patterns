@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: command
+  
+  # PostgreSQL Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5444/commanddb
+    username: fsk
+    password: fsk
+    driver-class-name: org.postgresql.Driver
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  
+  # RabbitMQ Configuration
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# Swagger Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+    tryItOutEnabled: true
+    filter: true
+    defaultModelsExpandDepth: -1
+    defaultModelExpandDepth: -1
+    displayRequestDuration: true
+    showExtensions: true
+    showCommonExtensions: true
+    supportedSubmitMethods:
+      - get
+      - post
+      - put
+      - delete
+      - patch
+  packages-to-scan: org.fsk.command.controller
+  paths-to-match: /api/**
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  writer-with-default-pretty-printer: true
+  model-and-view-allowed: true

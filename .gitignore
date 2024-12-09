@@ -1,0 +1,101 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Node.js ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### TypeScript ###
+*.tsbuildinfo
+
+### JavaScript ###
+/dist/
+/build/
+
+### Logs ###
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Dependency directories ###
+node_modules/
+jspm_packages/
+
+### Optional npm cache directory ###
+.npm
+
+### Optional eslint cache ###
+.eslintcache
+
+### Optional REPL history ###
+.node_repl_history
+
+### Output of 'npm pack' ###
+*.tgz
+
+### Yarn Integrity file ###
+.yarn-integrity
+
+### dotenv environment variables file ###
+.env
+
+### Parcel-bundler cache (https://parceljs.org/) ###
+.cache
+
+### Next.js ###
+.next/
+
+### Nuxt.js ###
+.nuxt/
+
+### Rollup.js ###
+/dist/
+
+### Svelte ###
+__sapper__/
+public/
+
+### Vue.js ###
+/dist/
+/*.local
+
+### Storybook ###
+/out/
+
+### Stylelint ###
+.stylelintcache

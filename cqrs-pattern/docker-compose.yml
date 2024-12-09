@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  command-db:
+    container_name: command-db
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: commanddb
+      POSTGRES_USER: fsk
+      POSTGRES_PASSWORD: fsk
+    ports:
+      - "5444:5432"
+    volumes:
+      - command-db-data:/var/lib/postgresql/data
+    networks:
+      - cqrs-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  messaging-queue:
+    container_name: messaging-queue
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+      - "5672:5672"   
+      - "15672:15672" 
+    volumes:
+      - messaging-queue-data:/var/lib/rabbitmq
+    networks:
+      - cqrs-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  command-db-data:
+    name: command-db-data
+  messaging-queue-data:
+    name: messaging-queue-data
+
+networks:
+  cqrs-network:
+    name: cqrs-network
+    driver: bridge
